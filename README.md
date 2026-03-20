@@ -35,10 +35,12 @@
 
 ```
 ChickenShop/
-├── index.html    ← หน้าเว็บหลัก
-├── style.css     ← สไตล์ทั้งหมด
-├── script.js     ← JavaScript พื้นฐาน
-└── README.md     ← ไฟล์นี้
+├── index.html                        ← หน้าเว็บหลัก
+├── style.css                         ← สไตล์ทั้งหมด
+├── script.js                         ← JavaScript พื้นฐาน
+├── deploy.sh                         ← สคริปต์ deploy บนเซิร์ฟเวอร์
+├── README.md                         ← ไฟล์นี้
+└── .github/workflows/deploy.yml      ← GitHub Actions auto-deploy
 ```
 
 ---
@@ -71,6 +73,56 @@ sudo chmod -R 755 /var/www/html/
 
 เปิดเบราว์เซอร์ไปที่ `http://<server-ip>` เพื่อดูเว็บไซต์
 
+### วิธีลัด: ใช้ Deploy Script
+
+```bash
+# บนเซิร์ฟเวอร์ Ubuntu — รันครั้งเดียวจบ
+curl -sSL https://raw.githubusercontent.com/poomiput/chicken-Shop/main/deploy.sh | sudo bash
+```
+
+หรือ clone แล้วรัน:
+
+```bash
+git clone https://github.com/poomiput/chicken-Shop.git
+sudo bash chicken-Shop/deploy.sh
+```
+
+---
+
+## 🤖 Auto Deploy (GitHub Actions)
+
+เมื่อ **push เข้า main** หรือ **merge PR** → GitHub Actions จะ SSH ไปที่เซิร์ฟเวอร์แล้ว deploy ให้อัตโนมัติ
+
+### ตั้งค่า Secrets ที่ GitHub
+
+ไปที่ Repository → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
+
+| Secret Name | ค่า |
+|---|---|
+| `SERVER_HOST` | IP ของเซิร์ฟเวอร์ (เช่น `192.168.1.100`) |
+| `SERVER_USER` | username SSH (เช่น `ubuntu`) |
+| `SERVER_SSH_KEY` | private key สำหรับ SSH (เนื้อหาไฟล์ `id_rsa`) |
+
+### วิธีเตรียม SSH Key บนเซิร์ฟเวอร์
+
+```bash
+# บนเครื่อง local — สร้าง key
+ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""
+
+# copy public key ไปยังเซิร์ฟเวอร์
+ssh-copy-id -i ~/.ssh/deploy_key.pub ubuntu@<server-ip>
+
+# นำ private key ไปใส่ใน GitHub Secret (SERVER_SSH_KEY)
+cat ~/.ssh/deploy_key
+```
+
+### Flow การทำงาน
+
+```
+แก้โค้ด → push/merge เข้า main → GitHub Actions trigger
+→ SSH ไปเซิร์ฟเวอร์ → git pull → เว็บอัปเดตอัตโนมัติ ✅
+```
+
 ---
 
 ## 🔄 Git/GitHub Workflow
@@ -98,9 +150,8 @@ git push origin feature/update-promotion
 
 # 4. เปิด Pull Request บน GitHub แล้ว Merge เข้า main
 
-# 5. บนเซิร์ฟเวอร์ — Pull แล้ว Deploy
-cd /var/www/html
-sudo git pull origin main
+# 5. GitHub Actions จะ deploy ไปยังเซิร์ฟเวอร์ให้อัตโนมัติ!
+#    (หรือ deploy manual: ssh เข้าเซิร์ฟเวอร์แล้วรัน sudo bash deploy.sh)
 ```
 
 ### จุดที่แก้ไขง่ายสำหรับ Demo
