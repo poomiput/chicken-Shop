@@ -1,18 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chicken Shop - ไก่ทอดกรอบ อร่อย ส่งไว | ร้านไก่ทอดคุณภาพระดับพรีเมียม">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Chicken Shop - ไก่ทอดกรอบ อร่อย ส่งไว | ร้านไก่ทอดคุณภาพระดับพรีเมียม"
+    />
     <title>Chicken Shop | ไก่ทอดกรอบ อร่อย ส่งไว</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-
+  <body>
     <!-- ============================================================
          ANNOUNCEMENT BANNER
          *** EASY EDIT POINT ***
@@ -20,47 +24,69 @@
          เช่น เปลี่ยนโปรโมชั่น หรือประกาศพิเศษ
     ============================================================ -->
     <div class="announcement-banner" id="announcement-banner">
-        <span>🔥 โปรวันนี้! สั่งครบ 200 บาท ส่งฟรีทั่วเมือง 🔥</span>
-        <button class="banner-close" onclick="closeBanner()" aria-label="ปิด">&times;</button>
+      <span>🔥 โปรวันนี้! สั่งครบ 200 บาท ส่งฟรีทั่วเมือง 🔥</span>
+      <button class="banner-close" onclick="closeBanner()" aria-label="ปิด">
+        &times;
+      </button>
     </div>
 
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo">
-                <img src="https://m.media-amazon.com/images/I/41qPdMUpvOL._AC_US750_.jpg" alt="Chicken Shop Logo"
-                    class="logo-img">
-                <span class="logo-text">Chicken Shop</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#hero">หน้าแรก</a></li>
-                <li><a href="#menu">เมนู</a></li>
-                <li><a href="#promotion">โปรโมชั่น</a></li>
-                <li><a href="#reviews">รีวิว</a></li>
-                <li><a href="#contact">ติดต่อ</a></li>
-            </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="เมนู">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+      <div class="container nav-content">
+        <a href="#" class="logo">
+          <img
+            src="https://m.media-amazon.com/images/I/41qPdMUpvOL._AC_US750_.jpg"
+            alt="Chicken Shop Logo"
+            class="logo-img"
+          />
+          <span class="logo-text">Chicken Shop</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#hero">หน้าแรก</a></li>
+          <li><a href="#menu">เมนู</a></li>
+          <li><a href="#promotion">โปรโมชั่น</a></li>
+          <li><a href="#reviews">รีวิว</a></li>
+          <li><a href="#contact">ติดต่อ</a></li>
+        </ul>
+        <button
+          class="mobile-menu-btn"
+          onclick="toggleMobileMenu()"
+          aria-label="เมนู"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
 
     <!-- ============================================================
          HERO SECTION
     ============================================================ -->
     <section class="hero" id="hero">
-        <div class="hero-overlay"></div>
-        <img src="https://m.media-amazon.com/images/I/41qPdMUpvOL._AC_US750_.jpg" alt="Chicken Shop" class="hero-logo">
-        <div class="container hero-content">
-            <div class="hero-badge">🏆 ขายดีอันดับ 2</div>
-            <h1>Chicken Shop</h1>
-            <p class="hero-tagline">ไก่ทอดกรอบ อร่อย ส่งไว</p>
-            <p class="hero-subtitle">คัดสรรวัตถุดิบคุณภาพ ทอดใหม่ทุกออเดอร์ กรอบนอกนุ่มใน</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary btn-lg" onclick="scrollToSection('menu')">🍗 ดูเมนู</button>
-                <button class="btn btn-outline btn-lg" onclick="orderNow()">📱 สั่งเลย</button>
-            </div>
+      <div class="hero-overlay"></div>
+      <img
+        src="https://m.media-amazon.com/images/I/41qPdMUpvOL._AC_US750_.jpg"
+        alt="Chicken Shop"
+        class="hero-logo"
+      />
+      <div class="container hero-content">
+        <div class="hero-badge">🏆 ขายดีอันดับ 2ร้อยกว่า</div>
+        <h1>Chicken Shop</h1>
+        <p class="hero-tagline">ไก่ทอดกรอบ อร่อย ส่งช้า</p>
+        <p class="hero-subtitle">
+          คัดสรรวัตถุดิบคุณภาพ ทอดใหม่ทุกออเดอร์ กรอบนอกนุ่มใน
+        </p>
+        <div class="hero-buttons">
+          <button
+            class="btn btn-primary btn-lg"
+            onclick="scrollToSection('menu')"
+          >
+            🍗 ดูเมนู
+          </button>
+          <button class="btn btn-outline btn-lg" onclick="orderNow()">
+            📱 สั่งเลย
+          </button>
         </div>
+      </div>
     </section>
 
     <!-- ============================================================
@@ -70,125 +96,174 @@
          เหมาะสำหรับ demo การ push / pull request / deploy
     ============================================================ -->
     <section class="daily-special" id="daily-special">
-        <div class="container">
-            <div class="special-card">
-                <div class="special-badge">⭐ เมนูแนะนำประจำวัน</div>
-                <div class="special-content">
-                    <div class="special-icon">
-                        <img src="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa7HSnpBcrEGIQH2Up839QZVDgj4sjBelfPU8NdyfoaeUYYbHg6Nr.jpg"
-                            alt="ไก่ทอดหาดใหญ่">
-                    </div>
-                    <div class="special-info">
-                        <h3>ไก่ทอดหาดใหญ่</h3>
-                        <p>ไก่ทอดหาดใหญ่สูตรต้นตำรับ หนังกรอบ เนื้อฉ่ำ โรยหอมเจียวหอมฟุ้ง เสิร์ฟพร้อมข้าวเหนียว</p>
-                        <div class="special-price">
-                            <span class="price-old">฿89</span>
-                            <span class="price-new">฿69</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-primary" onclick="orderItem('ไก่ทอดหาดใหญ่', 69)">สั่งเลย!</button>
+      <div class="container">
+        <div class="special-card">
+          <div class="special-badge">⭐ เมนูแนะนำประจำวัน</div>
+          <div class="special-content">
+            <div class="special-icon">
+              <img
+                src="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa7HSnpBcrEGIQH2Up839QZVDgj4sjBelfPU8NdyfoaeUYYbHg6Nr.jpg"
+                alt="ไก่ทอดหาดใหญ่"
+              />
             </div>
+            <div class="special-info">
+              <h3>ไก่ทอดหาดใหญ่</h3>
+              <p>
+                ไก่ทอดหาดใหญ่สูตรต้นตำรับ หนังกรอบ เนื้อฉ่ำ โรยหอมเจียวหอมฟุ้ง
+                เสิร์ฟพร้อมข้าวเหนียว
+              </p>
+              <div class="special-price">
+                <span class="price-old">฿89</span>
+                <span class="price-new">฿69</span>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-primary"
+            onclick="orderItem('ไก่ทอดหาดใหญ่', 69)"
+          >
+            สั่งเลย!
+          </button>
         </div>
+      </div>
     </section>
 
     <!-- ============================================================
          MENU SECTION
     ============================================================ -->
     <section class="menu-section" id="menu">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Menu</span>
-                <h2>เมนูยอดนิยม</h2>
-                <p>คัดสรรเมนูขายดีจากร้าน Chicken Shop</p>
-            </div>
-            <div class="menu-grid">
-
-                <div class="menu-card">
-                    <div class="menu-card-img">
-                        <img src="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa7HSnpBcrEGIQH2Up839QZVDgj4sjBelfPU8NdyfoaeUYYbHg6Nr.jpg"
-                            alt="ไก่ทอดหาดใหญ่">
-                        <span class="menu-badge bestseller">ขายดี</span>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>ไก่ทอดหาดใหญ่</h3>
-                        <p>ไก่ทอดหาดใหญ่สูตรต้นตำรับ หนังกรอบเนื้อฉ่ำ โรยหอมเจียวหอมฟุ้ง</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">฿59</span>
-                            <button class="btn btn-sm btn-primary"
-                                onclick="orderItem('ไก่ทอดหาดใหญ่', 59)">สั่งเลย</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-img">
-                        <img src="https://food.mthai.com/app/uploads/2017/07/Chicken-wings-fried-fish-sauce.jpg"
-                            alt="ปีกไก่ทอดน้ำปลา">
-                        <span class="menu-badge spicy">แนะนำ</span>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>ปีกไก่ทอดน้ำปลา</h3>
-                        <p>ปีกไก่ทอดน้ำปลากรอบกรุบ อร่อยจนต้องดูดนิ้ว กินเพลินหยุดไม่ได้</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">฿69</span>
-                            <button class="btn btn-sm btn-primary"
-                                onclick="orderItem('ปีกไก่ทอดน้ำปลา', 69)">สั่งเลย</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-img">
-                        <img src="https://image.makewebeasy.net/makeweb/0/Ommd4Syoj/DefaultData/shutterstock_1423201865_1.jpg?v=202305101549"
-                            alt="ไก่ทอดบอนไซ">
-                        <span class="menu-badge new">ใหม่!</span>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>ไก่ทอดบอนไซ</h3>
-                        <p>ไก่ทอดชิ้นพอดีคำ กรอบนอกนุ่มใน เสิร์ฟบนถาดไม้สไตล์ญี่ปุ่น</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">฿79</span>
-                            <button class="btn btn-sm btn-primary"
-                                onclick="orderItem('ไก่ทอดบอนไซ', 79)">สั่งเลย</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-img">
-                        <img src="https://f.ptcdn.info/034/044/000/o9of6tgzJ22RIH4sgj-o.jpg" alt="ไก่ชนสายฟ้า">
-                        <span class="menu-badge special">🔥 พิเศษ</span>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>ไก่ชนสายฟ้า</h3>
-                        <p>ไก่ตัวเป็นๆ ยังไม่ทอด แต่ใจสู้มาก สั่งไปเลี้ยงเล่นก็ได้ (ล้อเล่น 😂)</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">฿199</span>
-                            <button class="btn btn-sm btn-primary"
-                                onclick="orderItem('ไก่ชนสายฟ้า', 199)">สั่งเลย</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-card">
-                    <div class="menu-card-img">
-                        <img src="https://inwfile.com/s-cf/zbq25r.jpg" alt="ไก่สดคุณภาพ">
-                        <span class="menu-badge fresh">วัตถุดิบสด</span>
-                    </div>
-                    <div class="menu-card-body">
-                        <h3>ไก่สดพรีเมียม</h3>
-                        <p>วัตถุดิบคัดสรรคุณภาพ ไก่สดส่งตรงจากฟาร์มทุกวัน การันตีความสด</p>
-                        <div class="menu-card-footer">
-                            <span class="menu-price">฿45</span>
-                            <button class="btn btn-sm btn-primary"
-                                onclick="orderItem('ไก่สดพรีเมียม', 45)">สั่งเลย</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Menu</span>
+          <h2>เมนูยอดนิยม</h2>
+          <p>คัดสรรเมนูขายดีจากร้าน Chicken Shop</p>
         </div>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="menu-card-img">
+              <img
+                src="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa7HSnpBcrEGIQH2Up839QZVDgj4sjBelfPU8NdyfoaeUYYbHg6Nr.jpg"
+                alt="ไก่ทอดหาดใหญ่"
+              />
+              <span class="menu-badge bestseller">ขายดี</span>
+            </div>
+            <div class="menu-card-body">
+              <h3>ไก่ทอดหาดใหญ่</h3>
+              <p>
+                ไก่ทอดหาดใหญ่สูตรต้นตำรับ หนังกรอบเนื้อฉ่ำ โรยหอมเจียวหอมฟุ้ง
+              </p>
+              <div class="menu-card-footer">
+                <span class="menu-price">฿59</span>
+                <button
+                  class="btn btn-sm btn-primary"
+                  onclick="orderItem('ไก่ทอดหาดใหญ่', 59)"
+                >
+                  สั่งเลย
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-img">
+              <img
+                src="https://food.mthai.com/app/uploads/2017/07/Chicken-wings-fried-fish-sauce.jpg"
+                alt="ปีกไก่ทอดน้ำปลา"
+              />
+              <span class="menu-badge spicy">แนะนำ</span>
+            </div>
+            <div class="menu-card-body">
+              <h3>ปีกไก่ทอดน้ำปลา</h3>
+              <p>
+                ปีกไก่ทอดน้ำปลากรอบกรุบ อร่อยจนต้องดูดนิ้ว กินเพลินหยุดไม่ได้
+              </p>
+              <div class="menu-card-footer">
+                <span class="menu-price">฿69</span>
+                <button
+                  class="btn btn-sm btn-primary"
+                  onclick="orderItem('ปีกไก่ทอดน้ำปลา', 69)"
+                >
+                  สั่งเลย
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-img">
+              <img
+                src="https://image.makewebeasy.net/makeweb/0/Ommd4Syoj/DefaultData/shutterstock_1423201865_1.jpg?v=202305101549"
+                alt="ไก่ทอดบอนไซ"
+              />
+              <span class="menu-badge new">ใหม่!</span>
+            </div>
+            <div class="menu-card-body">
+              <h3>ไก่ทอดบอนไซ</h3>
+              <p>ไก่ทอดชิ้นพอดีคำ กรอบนอกนุ่มใน เสิร์ฟบนถาดไม้สไตล์ญี่ปุ่น</p>
+              <div class="menu-card-footer">
+                <span class="menu-price">฿79</span>
+                <button
+                  class="btn btn-sm btn-primary"
+                  onclick="orderItem('ไก่ทอดบอนไซ', 79)"
+                >
+                  สั่งเลย
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-img">
+              <img
+                src="https://f.ptcdn.info/034/044/000/o9of6tgzJ22RIH4sgj-o.jpg"
+                alt="ไก่ชนสายฟ้า"
+              />
+              <span class="menu-badge special">🔥 พิเศษ</span>
+            </div>
+            <div class="menu-card-body">
+              <h3>ไก่ชนสายฟ้า</h3>
+              <p>
+                ไก่ตัวเป็นๆ ยังไม่ทอด แต่ใจสู้มาก สั่งไปเลี้ยงเล่นก็ได้ (ล้อเล่น
+                😂)
+              </p>
+              <div class="menu-card-footer">
+                <span class="menu-price">฿199</span>
+                <button
+                  class="btn btn-sm btn-primary"
+                  onclick="orderItem('ไก่ชนสายฟ้า', 199)"
+                >
+                  สั่งเลย
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-img">
+              <img
+                src="https://inwfile.com/s-cf/zbq25r.jpg"
+                alt="ไก่สดคุณภาพ"
+              />
+              <span class="menu-badge fresh">วัตถุดิบสด</span>
+            </div>
+            <div class="menu-card-body">
+              <h3>ไก่สดพรีเมียม</h3>
+              <p>
+                วัตถุดิบคัดสรรคุณภาพ ไก่สดส่งตรงจากฟาร์มทุกวัน การันตีความสด
+              </p>
+              <div class="menu-card-footer">
+                <span class="menu-price">฿45</span>
+                <button
+                  class="btn btn-sm btn-primary"
+                  onclick="orderItem('ไก่สดพรีเมียม', 45)"
+                >
+                  สั่งเลย
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================================================
@@ -197,148 +272,165 @@
          แก้โปรโมชั่นที่นี่เพื่อ demo การ deploy
     ============================================================ -->
     <section class="promotion-section" id="promotion">
-        <div class="container">
-            <div class="section-header light">
-                <span class="section-tag">Promotion</span>
-                <h2>โปรโมชั่นพิเศษ</h2>
-                <p>อย่าพลาดโปรสุดคุ้มจาก Chicken Shop</p>
-            </div>
-            <div class="promo-grid">
-
-                <div class="promo-card promo-highlight">
-                    <div class="promo-icon">🎉</div>
-                    <h3>สั่ง 3 ชิ้น ลด 20%</h3>
-                    <p>สั่งไก่ทอดครบ 3 ชิ้นขึ้นไป รับส่วนลดทันที 20% ไม่ต้องใช้โค้ด</p>
-                    <span class="promo-tag">หมดเขต 31 มี.ค.</span>
-                </div>
-
-                <div class="promo-card">
-                    <div class="promo-icon">🚚</div>
-                    <h3>ส่งฟรี! ทุกออเดอร์</h3>
-                    <p>สั่งครบ 50 บาท ส่งฟรีทุกพื้นที่ในตัวเมือง ไม่มีขั้นต่ำค่าจัดส่ง</p>
-                    <span class="promo-tag">เฉพาะสัปดาห์นี้</span>
-                </div>
-
-                <div class="promo-card">
-                    <div class="promo-icon">🎁</div>
-                    <h3>สมาชิกใหม่ลด 15%</h3>
-                    <p>สมัครสมาชิก Chicken Shop วันนี้ รับส่วนลดทันที 15% สำหรับออเดอร์แรก</p>
-                    <span class="promo-tag">ตลอดเดือน</span>
-                </div>
-
-            </div>
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-tag">Promotion</span>
+          <h2>โปรโมชั่นพิเศษ</h2>
+          <p>อย่าพลาดโปรสุดคุ้มจาก Chicken Shop</p>
         </div>
+        <div class="promo-grid">
+          <div class="promo-card promo-highlight">
+            <div class="promo-icon">🎉</div>
+            <h3>สั่ง 3 ชิ้น ลด 20%</h3>
+            <p>สั่งไก่ทอดครบ 3 ชิ้นขึ้นไป รับส่วนลดทันที 20% ไม่ต้องใช้โค้ด</p>
+            <span class="promo-tag">หมดเขต 31 มี.ค.</span>
+          </div>
+
+          <div class="promo-card">
+            <div class="promo-icon">🚚</div>
+            <h3>ส่งฟรี! ทุกออเดอร์</h3>
+            <p>
+              สั่งครบ 50 บาท ส่งฟรีทุกพื้นที่ในตัวเมือง ไม่มีขั้นต่ำค่าจัดส่ง
+            </p>
+            <span class="promo-tag">เฉพาะสัปดาห์นี้</span>
+          </div>
+
+          <div class="promo-card">
+            <div class="promo-icon">🎁</div>
+            <h3>สมาชิกใหม่ลด 15%</h3>
+            <p>
+              สมัครสมาชิก Chicken Shop วันนี้ รับส่วนลดทันที 15%
+              สำหรับออเดอร์แรก
+            </p>
+            <span class="promo-tag">ตลอดเดือน</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================================================
          REVIEWS SECTION
     ============================================================ -->
     <section class="reviews-section" id="reviews">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Reviews</span>
-                <h2>ลูกค้าพูดถึงเรา</h2>
-                <p>รีวิวจริงจากลูกค้าที่สั่งไก่ทอดจาก Chicken Shop</p>
-            </div>
-            <div class="reviews-grid">
-
-                <div class="review-card">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"ไก่ทอดกรอบมากก อร่อยจนต้องสั่งซ้ำ ส่งเร็วด้วย แนะนำรสออริจินอลเลยค่ะ!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">👩</div>
-                        <div>
-                            <strong>คุณแอน</strong>
-                            <span>ลูกค้าประจำ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"เซ็ตสุดคุ้มคุ้มมากกก ไก่ 2 ชิ้น เฟรนช์ฟรายส์ น้ำอัดลม แค่ 119 บาท สุดยอด!"
-                    </p>
-                    <div class="review-author">
-                        <div class="review-avatar">👨</div>
-                        <div>
-                            <strong>คุณบอล</strong>
-                            <span>สั่งมาแล้ว 15 ครั้ง</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"รสเผ็ดเผ็ดได้ใจมากครับ ซอสพริกหอมๆ กรอบจริงๆ ไม่เหมือนร้านอื่นที่เคยสั่ง!"
-                    </p>
-                    <div class="review-author">
-                        <div class="review-avatar">👦</div>
-                        <div>
-                            <strong>คุณเต้</strong>
-                            <span>สายเผ็ดตัวจริง</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Reviews</span>
+          <h2>ลูกค้าพูดถึงเรา</h2>
+          <p>รีวิวจริงจากลูกค้าที่สั่งไก่ทอดจาก Chicken Shop</p>
         </div>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              "ไก่ทอดกรอบมากก อร่อยจนต้องสั่งซ้ำ ส่งเร็วด้วย
+              แนะนำรสออริจินอลเลยค่ะ!"
+            </p>
+            <div class="review-author">
+              <div class="review-avatar">👩</div>
+              <div>
+                <strong>คุณแอน</strong>
+                <span>ลูกค้าประจำ</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              "เซ็ตสุดคุ้มคุ้มมากกก ไก่ 2 ชิ้น เฟรนช์ฟรายส์ น้ำอัดลม แค่ 119 บาท
+              สุดยอด!"
+            </p>
+            <div class="review-author">
+              <div class="review-avatar">👨</div>
+              <div>
+                <strong>คุณบอล</strong>
+                <span>สั่งมาแล้ว 15 ครั้ง</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              "รสเผ็ดเผ็ดได้ใจมากครับ ซอสพริกหอมๆ กรอบจริงๆ
+              ไม่เหมือนร้านอื่นที่เคยสั่ง!"
+            </p>
+            <div class="review-author">
+              <div class="review-avatar">👦</div>
+              <div>
+                <strong>คุณเต้</strong>
+                <span>สายเผ็ดตัวจริง</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================================================
          CONTACT / CTA SECTION
     ============================================================ -->
     <section class="cta-section" id="contact">
-        <div class="container">
-            <div class="cta-content">
-                <h2>หิวไก่ทอดยัง? 🍗</h2>
-                <p>สั่งไก่ทอด Chicken Shop ได้เลยตอนนี้ ส่งไวทั่วเมือง!</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary btn-lg" onclick="orderNow()">📱 สั่งเลย!</button>
-                    <a href="tel:0812345678" class="btn btn-outline btn-lg">📞 โทรสั่ง</a>
-                </div>
-                <div class="cta-info">
-                    <div class="cta-info-item">
-                        <span>📍</span>
-                        <span>123 ถ.มิตรภาพ อ.เมือง จ.ขอนแก่น</span>
-                    </div>
-                    <div class="cta-info-item">
-                        <span>🕐</span>
-                        <span>เปิดทุกวัน 10:00 - 22:00</span>
-                    </div>
-                    <div class="cta-info-item">
-                        <span>📞</span>
-                        <span>081-234-5678</span>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="cta-content">
+          <h2>หิวไก่ทอดยัง? 🍗</h2>
+          <p>สั่งไก่ทอด Chicken Shop ได้เลยตอนนี้ ส่งไวทั่วเมือง!</p>
+          <div class="cta-buttons">
+            <button class="btn btn-primary btn-lg" onclick="orderNow()">
+              📱 สั่งเลย!
+            </button>
+            <a href="tel:0812345678" class="btn btn-outline btn-lg"
+              >📞 โทรสั่ง</a
+            >
+          </div>
+          <div class="cta-info">
+            <div class="cta-info-item">
+              <span>📍</span>
+              <span>123 ถ.มิตรภาพ อ.เมือง จ.ขอนแก่น</span>
             </div>
+            <div class="cta-info-item">
+              <span>🕐</span>
+              <span>เปิดทุกวัน 10:00 - 22:00</span>
+            </div>
+            <div class="cta-info-item">
+              <span>📞</span>
+              <span>081-234-5678</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="https://m.media-amazon.com/images/I/41qPdMUpvOL._AC_US750_.jpg" alt="Chicken Shop Logo"
-                        class="footer-logo-img">
-                    <span class="logo-text">Chicken Shop</span>
-                    <p>ไก่ทอดกรอบ อร่อย ส่งไว</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#hero">หน้าแรก</a>
-                    <a href="#menu">เมนู</a>
-                    <a href="#promotion">โปรโมชั่น</a>
-                    <a href="#reviews">รีวิว</a>
-                    <a href="#contact">ติดต่อ</a>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2026 Chicken Shop — Computer System Engineering & System Administration Project</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <img
+              src="https://m.media-amazon.com/images/I/41qPdMUpvOL._AC_US750_.jpg"
+              alt="Chicken Shop Logo"
+              class="footer-logo-img"
+            />
+            <span class="logo-text">Chicken Shop</span>
+            <p>ไก่ทอดกรอบ อร่อย ส่งไว</p>
+          </div>
+          <div class="footer-links">
+            <a href="#hero">หน้าแรก</a>
+            <a href="#menu">เมนู</a>
+            <a href="#promotion">โปรโมชั่น</a>
+            <a href="#reviews">รีวิว</a>
+            <a href="#contact">ติดต่อ</a>
+          </div>
+          <div class="footer-bottom">
+            <p>
+              &copy; 2026 Chicken Shop — Computer System Engineering & System
+              Administration Project
+            </p>
+          </div>
         </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
