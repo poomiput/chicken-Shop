@@ -124,18 +124,28 @@ git commit -m "แก้ conflict: รวมโปรโมชั่นกับ
 
 ---
 
-### ขั้นที่ 5: Auto Deploy (GitHub Actions)
+### ขั้นที่ 5: Deploy ขึ้นเซิร์ฟเวอร์ (Manual SSH)
 
 พูดว่า:
-> "พอ merge เข้า main — ดูที่ tab Actions ใน GitHub"
+> "พอ merge เข้า main แล้ว ต่อไปก็นำโค้ดไปอัปเดตบนเซิร์ฟเวอร์
+> เนื่องจากเซิร์ฟเวอร์เราเป็น IP ภายใน ผมจึงต้อง SSH เข้าไปดึงโค้ดสดๆ ให้ดูครับ
+> แต่ถ้าเป็นของจริงในองค์กร จะใช้ระบบ CI/CD ทำตรงนี้ให้อัตโนมัติ"
 
-**เปิด GitHub → Actions tab** — จะเห็น workflow กำลังรัน
+**เปิด Terminal:**
 
-> "GitHub Actions ตรวจพบว่ามีการ push เข้า main
-> จึง SSH ไปยังเซิร์ฟเวอร์ แล้วรัน git pull ให้อัตโนมัติ
-> ไม่ต้อง SSH เข้าไปทำเอง!"
+```bash
+# SSH เข้าเซิร์ฟเวอร์ Ubuntu (password: 1)
+ssh analyze@192.168.0.111
 
-**Refresh browser ที่เปิดเว็บ** → เห็นเว็บอัปเดตแล้ว!
+# เข้าไปที่โฟลเดอร์เว็บ
+cd /var/www/html
+
+# ดึงโค้ดล่าสุดจาก GitHub มาอัปเดต
+git fetch origin
+git reset --hard origin/main
+```
+
+**Refresh browser ที่เปิดเว็บ** → เห็นเว็บอัปเดตเป็นของใหม่แล้ว!
 
 ---
 
@@ -147,11 +157,19 @@ git commit -m "แก้ conflict: รวมโปรโมชั่นกับ
 **ทำให้เว็บพัง (จงใจ):**
 
 ```bash
-# ทำให้เว็บพัง!
-echo "ข้อความทดสอบ ทำให้เว็บพัง" > index.html
-git add .
+# พิมพ์ในเครื่องของเรา (ไม่ใช่ใน SSH)
+echo "<h1>พังแล้วจ้าาา</h1>" > index.html
+git add index.html
 git commit -m "อัปเดตหน้าเว็บ (มี bug!)"
 git push origin main
+```
+
+**SSH เข้าไปอัปเดตบนเซิร์ฟเวอร์:**
+```bash
+ssh analyze@192.168.0.111
+cd /var/www/html
+git fetch origin
+git reset --hard origin/main
 ```
 
 **Refresh browser** → เว็บพัง! 😱
@@ -160,7 +178,7 @@ git push origin main
 > "ถ้าไม่มี Version Control เราต้องนั่งแก้ไฟล์ใหม่ นั่งจำว่าแก้ตรงไหน
 > แต่เพราะเราใช้ Git เราสามารถ revert กลับได้ทันที!"
 
-**Rollback:**
+**Rollback ในเครื่องเรา:**
 
 ```bash
 # ดู history — จะเห็น commit ที่พังอยู่บนสุด
@@ -173,14 +191,19 @@ git revert HEAD --no-edit
 git push origin main
 ```
 
-**GitHub Actions จะ trigger อีกรอบ → deploy กลับอัตโนมัติ**
+**SSH เข้าไปดึงโค้ดที่แก้แล้ว:**
+```bash
+# กลับไปที่ SSH session ของเซิร์ฟเวอร์
+git fetch origin
+git reset --hard origin/main
+```
 
 **Refresh browser** → เว็บกลับมาปกติ! 🎉
 
 พูดว่า:
-> "ทั้งหมดนี้ไม่ต้อง SSH เข้าเซิร์ฟเวอร์เลย
-> Git + GitHub Actions ทำทุกอย่างให้อัตโนมัติ
-> นี่คือพลังของ Version Control + CI/CD ในงาน System Administration"
+> "ถึงแม้เซิร์ฟเวอร์เราจะเป็นระบบ manual 
+> แต่เพราะ Git เก็บประวัติไว้ ทำให้เรากู้คืนระบบได้อย่างรวดเร็วและปลอดภัย
+> นี่คือพลังของ Version Control ในงาน System Administration"
 
 ---
 
@@ -192,8 +215,8 @@ git push origin main
 | Feature Development | สร้าง branch, แก้ไข, commit | แต่ละคนทำงานไม่กระทบกัน |
 | Merge Conflict | 2 คนแก้จุดเดียวกัน | Git ตรวจจับและให้เราแก้ไข ไม่ overwrite |
 | Pull Request | merge ผ่าน PR + review | ตรวจสอบโค้ดก่อน deploy |
-| Auto Deploy | GitHub Actions | ลดงาน manual, deploy อัตโนมัติ |
-| Rollback | git revert + auto-deploy | กู้คืนได้ทันทีเมื่อเกิดปัญหา |
+| Manual Deploy | SSH ดึงโค้ด | กระบวนการ deploy ขึ้น Server จริง |
+| Rollback | git revert + deploy ใหม่ | กู้คืนได้ทันทีเมื่อเกิดปัญหา |
 
 ---
 
