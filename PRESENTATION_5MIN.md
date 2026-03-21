@@ -155,8 +155,10 @@ ssh analyze@192.168.0.111
 # เข้าไปที่โฟลเดอร์เว็บ
 cd /var/www/html
 
-# ดึงโค้ดล่าสุดจาก GitHub มาอัปเดต
+# git fetch = ดึงข้อมูลล่าสุดจาก GitHub มา (ยังไม่แก้ไฟล์)
 git fetch origin
+
+# git reset --hard = บังคับให้ไฟล์บนเซิร์ฟเวอร์ตรงกับ GitHub เป๊ะๆ
 git reset --hard origin/main
 ```
 
