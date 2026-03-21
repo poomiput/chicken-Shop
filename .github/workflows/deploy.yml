@@ -1,14 +1,11 @@
 # ============================================================
-# GitHub Actions: Auto Deploy to Nginx Server
+# GitHub Actions: Auto Deploy to Nginx Server (Self-hosted Runner)
 # ============================================================
-# เมื่อ push หรือ merge เข้า main → SSH ไปที่เซิร์ฟเวอร์แล้ว pull อัตโนมัติ
+# เมื่อ push หรือ merge เข้า main → runner บนเซิร์ฟเวอร์จะ pull อัตโนมัติ
 #
-# *** ตั้งค่า Secrets ที่ GitHub ***
-# ไปที่ Repository → Settings → Secrets and variables → Actions → New repository secret
-# เพิ่ม secrets ต่อไปนี้:
-#   - SERVER_HOST     : IP ของเซิร์ฟเวอร์ (เช่น 192.168.1.100)
-#   - SERVER_USER     : username สำหรับ SSH (เช่น ubuntu)
-#   - SERVER_SSH_KEY  : private key สำหรับ SSH (เช่น เนื้อหาไฟล์ id_rsa)
+# *** ใช้ self-hosted runner ***
+# runner ติดตั้งบนเซิร์ฟเวอร์ Ubuntu โดยตรง
+# มันจะ connect ออกไป GitHub เอง (ไม่ต้องมี public IP)
 # ============================================================
 
 name: 🚀 Deploy to Nginx Server
@@ -24,7 +21,7 @@ jobs:
   deploy:
     # รันเฉพาะเมื่อ push เข้า main หรือ PR ถูก merge (ไม่ใช่แค่ปิด)
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: 🍗 Deploy Chicken Shop
 
     steps:
@@ -34,27 +31,14 @@ jobs:
           echo "📝 Message: ${{ github.event.head_commit.message }}"
           echo "👤 By: ${{ github.actor }}"
 
-      - name: 🔑 SSH และ Deploy ไปยังเซิร์ฟเวอร์
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            echo "🚀 เริ่ม deploy Chicken Shop..."
+      - name: 🚀 Pull โค้ดล่าสุดและ Deploy
+        run: |
+          echo "🚀 เริ่ม deploy Chicken Shop..."
 
-            # ตรวจสอบว่ามี repo อยู่แล้วหรือยัง
-            if [ -d "/var/www/html/.git" ]; then
-              cd /var/www/html
-              sudo git pull origin main
-            else
-              # Clone ใหม่ถ้ายังไม่มี
-              sudo rm -rf /var/www/html/*
-              sudo git clone https://github.com/${{ github.repository }}.git /var/www/html
-            fi
+          cd /var/www/html
 
-            # ตั้งค่า permission
-            sudo chown -R www-data:www-data /var/www/html
-            sudo chmod -R 755 /var/www/html
+          # ดึงโค้ดล่าสุดจาก GitHub
+          git fetch origin
+          git reset --hard origin/main
 
-            echo "✅ Deploy สำเร็จ!"
+          echo "✅ Deploy สำเร็จ!"
